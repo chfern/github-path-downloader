@@ -1,4 +1,4 @@
-package org.fc.githubpathdownloader
+package org.fc.githubpathdownloader.service
 
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.DeserializationFeature
@@ -7,7 +7,6 @@ import org.asynchttpclient.*
 import org.fc.githubpathdownloader.model.GithubRemoteFileInfo
 import org.fc.githubpathdownloader.model.rpc.RpcException
 import org.fc.githubpathdownloader.model.rpc.RpcResponse
-import org.fc.githubpathdownloader.service.FileDownloaderService
 import java.lang.StringBuilder
 import java.util.concurrent.CompletableFuture
 import java.util.concurrent.Executor

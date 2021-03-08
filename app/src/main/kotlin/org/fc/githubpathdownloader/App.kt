@@ -9,6 +9,7 @@ import kotlinx.cli.ExperimentalCli
 import kotlinx.cli.default
 import org.fc.githubpathdownloader.model.rpc.RpcException
 import org.fc.githubpathdownloader.service.FileDownloaderService
+import org.fc.githubpathdownloader.service.GithubDownloaderService
 import java.util.concurrent.Executors
 
 class App {
@@ -58,10 +59,12 @@ fun main(args: Array<String>) {
             FileDownloaderService()
     ).execute(object : GithubDownloaderService.OnCompleteHandler {
         override fun onComplete() {
+            println("Finished")
             System.exit(0)
         }
 
         override fun onException(rpcException: RpcException) {
+            println("Error: ${rpcException.errorMessage}")
             System.exit(0)
         }
     })
