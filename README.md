@@ -1,6 +1,6 @@
 # Github path downloader
 
-A simple utility to download files a path in a github repo.
+A simple utility to download files from a path in a github repo.
 
 Due to this library needing to fire a new http request for each to-be-downloaded file, files in nested folders will not be recursively downloaded.
 
@@ -22,5 +22,5 @@ Arguments:
 - `-U` / `--username` - Github username
 - `-R` / `--repository` - Github repository
 - `-p` / `--path` - (optional) Folder path, e.g: myfolder/nestedfolder
-- `-r' / `--ref` - (optional) Github ref
+- `-r` / `--ref` - (optional) Github ref
 - `-t` / `--token` - (optional) Github token with read repo access, omit this when token is already set in env
