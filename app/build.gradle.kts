@@ -32,14 +32,26 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
 
     implementation("org.jetbrains.kotlinx", "kotlinx-cli", "0.3.1")
-    implementation("org.asynchttpclient", "async-http-client", "2.2.0")
-}
-
-application {
-    // Define the main class for the application.
-    mainClassName = "org.fc.githubdownloader.AppKt"
+    implementation("org.asynchttpclient", "async-http-client", "2.12.1")
+    implementation("com.fasterxml.jackson.core", "jackson-databind", "2.12.1")
+    implementation("com.fasterxml.jackson.core", "jackson-annotations", "2.12.1")
+    implementation("org.slf4j", "slf4j-simple", "1.7.21")
 }
 
 sourceSets {
     getByName("main").java.srcDirs("src/main/kotlin")
+}
+
+application {
+    // Define the main class for the application.
+    mainClassName = "org.fc.githubpathdownloader.AppKt"
+}
+
+val jar by tasks.getting(Jar::class) {
+    manifest {
+        attributes["Main-Class"] = "org.fc.githubpathdownloader.AppKt"
+    }
+    from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) }) {
+        exclude("META-INF/*.RSA", "META-INF/*.SF", "META-INF/*.DSA")
+    }
 }

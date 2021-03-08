@@ -7,5 +7,5 @@
  * in the user manual at https://docs.gradle.org/6.4/userguide/multi_project_builds.html
  */
 
-rootProject.name = "github-downloader"
+rootProject.name = "github-path-downloader"
 include("app")
